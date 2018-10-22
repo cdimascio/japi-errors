@@ -10,4 +10,19 @@ public class ApiErrorDetails {
     @JsonProperty
     String message;
 
+    public String getMessage() {
+        return message;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    @Override
+    public String toString() {
+        return "ApiErrorDetails{" +
+                "code='" + code + '\'' +
+                ", message='" + message + '\'' +
+                '}';
+    }
 }
