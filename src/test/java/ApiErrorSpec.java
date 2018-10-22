@@ -10,6 +10,7 @@ public class ApiErrorSpec {
         ApiError error = Assertions.assertThrows(ApiError.class, () -> {
             throw ApiError.badRequest(message);
         });
+        Assertions.assertNotNull(error.getTrace());
         Assertions.assertEquals(error.getStatus().getCode(), 400);
         Assertions.assertEquals(error.getErrors().get(0).getCode(), "bad_request");
         Assertions.assertEquals(error.getErrors().get(0).getMessage(), message);
