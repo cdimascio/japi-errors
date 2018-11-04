@@ -8,9 +8,9 @@ Customizable errors for RESTful and HTTP services.
 <img src="https://raw.githubusercontent.com/cdimascio/japi-errors/master/assets/japi-errors.png" width="600">
 </p>
 
-All errors are Jackson ready and can be serialized as *JSON*, *XML*, and *YAML*.
-
 Out of the box, **japi-errors** provides [two error formats](#configure) or enables you to [provide](#customize) your own. 
+
+All 'out of the box' errors are Jackson ready and can be serialized as *JSON*, *XML*, and *YAML*. If you'd like to use GSON or something else, [create a custom error creator](#customize).
 
 ## Install
 
@@ -51,6 +51,8 @@ Assign
 ```shell
 AbstractApiError error = unauthorized();
 ```
+
+See [examples](#examples) with Spring MVC
 
 ## Configure
 
@@ -107,6 +109,7 @@ public class MyApiErrorCreator implements IApiErrorCreator {
 
 ```java
 // Create a custom api error object
+// Add Json ignore properties (see source code link above)
 public class MyApiError extends ApiError {
   @JsonProperty
   private String message;
@@ -120,10 +123,16 @@ public class MyApiError extends ApiError {
   }
   
   public String getMessage() {
-    return message
+    return message;
   }
 }
 ```
+
+## Examples
+
+Check out the following examples to see **japi-errors** in use: 
+
+- with [Spring MVC](https://github.com/cdimascio/kotlin-spring-mvc-template/blob/master/src/main/kotlin/api/users/UsersController.kt#L38)
 
 ## License
 [Apache 2](LICENSE)
