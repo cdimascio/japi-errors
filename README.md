@@ -65,7 +65,7 @@ ApiError.creator(ApiErrorCreators.BASIC); // The default
 ApiError.creator(ApiErrorCreators.WCP);
 ```
 
-### Basic
+### Basic (default)
 
 ```json
 {
