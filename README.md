@@ -1,5 +1,7 @@
 # japi-errors
 
+![](https://travis-ci.org/cdimascio/japi-errors.svg?branch=master) ![](https://img.shields.io/badge/license-Apache%202-blue.svg)
+
 Customizable errors for RESTful and HTTP services. 
 
 <p align="center">
