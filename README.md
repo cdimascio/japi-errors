@@ -51,7 +51,7 @@ throw internalServerError(exception);
 Assign
 
 ```shell
-AbstractApiError error = unauthorized();
+ApiError error = unauthorized();
 ```
 
 See [examples](#examples) with Spring MVC
