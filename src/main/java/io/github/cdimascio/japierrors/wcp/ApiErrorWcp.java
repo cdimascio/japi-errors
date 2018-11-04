@@ -16,7 +16,7 @@ import java.util.List;
         isGetterVisibility = JsonAutoDetect.Visibility.NONE,
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
-@JsonIgnoreProperties
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ApiErrorWcp extends ApiError {
     @JsonProperty
     private String trace;
