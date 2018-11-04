@@ -2,6 +2,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.cdimascio.apierrors.AbstractApiError;
 import io.github.cdimascio.apierrors.ApiError;
+import static io.github.cdimascio.apierrors.ApiError.badRequest;
 import io.github.cdimascio.apierrors.ApiErrorCreator;
 import io.github.cdimascio.apierrors.basic.ApiErrorBasic;
 import org.junit.jupiter.api.Assertions;
@@ -20,10 +21,10 @@ public class ApiErrorBasicSpec {
     }
 
     @Test
-    public void badRequest() {
+    public void badRequestErr() {
         String message = "oh no";
         ApiErrorBasic error = Assertions.assertThrows(ApiErrorBasic.class, () -> {
-            throw ApiError.badRequest(message);
+            throw badRequest(message);
         });
         Assertions.assertNotNull(error.getError());
         assertEquals(400, error.getCode());
