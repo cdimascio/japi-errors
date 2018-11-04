@@ -58,7 +58,7 @@ See [examples](#examples) with Spring MVC
 
 ## Configure
 
-japi-errors supports two error formats "out of the box". They are enabled as follows:
+**japi-errors** supports two error formats "out of the box". They are enabled as follows:
 
 ```
 ApiError.creator(ApiErrorCreators.BASIC); // The default
