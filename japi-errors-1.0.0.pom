@@ -9,8 +9,8 @@
     <url>https://github.com/cdimascio/jwcp-errors</url>
 
     <groupId>io.github.cdimascio</groupId>
-    <artifactId>jwcp-errors</artifactId>
-    <version>0.4.1</version>
+    <artifactId>japi-errors</artifactId>
+    <version>1.0.0</version>
 
     <licenses>
         <license>
@@ -51,7 +51,7 @@
 
     <properties>
         <kotlin.version>1.2.60</kotlin.version>
-        <main.class>io.github.cdimascio.jwcperrors.ApiErrors</main.class>
+        <main.class>io.github.cdimascio.apierrors.ApiErrors</main.class>
         <junit.version>4.12</junit.version>
         <jackson.version>2.9.7</jackson.version>
         <junit.jupiter.version>5.3.1</junit.jupiter.version>
@@ -79,6 +79,13 @@
             <artifactId>jackson-annotations</artifactId>
             <version>${jackson.version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>

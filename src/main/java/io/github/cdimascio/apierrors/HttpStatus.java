@@ -1,4 +1,4 @@
-package io.github.cdimascio.jwcperrors;
+package io.github.cdimascio.apierrors;
 
 
 public enum HttpStatus {
@@ -39,7 +39,7 @@ public enum HttpStatus {
 
     /**
      * The http status description
-     * @return
+     * @return The api description
      */
     public String getDescription() {
         return this.description;
