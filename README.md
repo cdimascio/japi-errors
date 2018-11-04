@@ -1,21 +1,22 @@
 # japi-errors
 
-Customizable errors for RESTful and HTTP services. All errors are Jackson ready and can be serialized as JSON, XML, and YAML.
+Customizable errors for RESTful and HTTP services. 
 
-japi-errors provides two error formats out of the box. It also let's you customize your own.
+All errors are Jackson ready and can be serialized as JSON, XML, and YAML.
 
+japi-errors provides two error formats out of the box and also enables you to customize your own. 
 
 ## Install
 
 Gradle
 
-```shell
+```groovy
 compile 'io.github.cdimascio:japi-errors:1.0.0'
 ```
 
 Maven
 
-```shell
+```xml
 <dependency>
   <groupId>io.github.cdimascio</groupId>
   <artifactId>japi-errors</artifactId>
@@ -59,8 +60,8 @@ ApiError.creator(ApiErrorCreators.WCP);
 
 ```json
 {
-	"code": 400,
-	"error": "'id' required."
+  "code": 400,
+  "error": "'id' required."
 }
 ```
 
@@ -68,11 +69,11 @@ ApiError.creator(ApiErrorCreators.WCP);
 
 ```json
 {
-	"trace": "1f96a430-dfd8-11e8-9f32-f2801f1b9fd1",
-	"errors": [
-		"code": "bad_request".
-		"message": "'id' required."
-	]
+  "trace": "1f96a430-dfd8-11e8-9f32-f2801f1b9fd1",
+  "errors": [{
+    "code": "bad_request".
+    "message": "'id' required."
+  }]
 }
 ```
 
