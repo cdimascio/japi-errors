@@ -32,43 +32,45 @@ Maven
 
 ## Usage
 
-Import
+Import error methods
 
 ```java
 import static io.github.cdimascio.japierrors.ApiError.badRequest;
+// ...
 ```
 
-Throw
+Throw any HTTP error and optionally pass an exception or custom message.
 
 ```java
 throw notFound();
 throw badRequest("id required.");
 throw internalServerError(exception);
+// ...
 ```
 
 Assign
 
 ```shell
-AbstractApiError error = unauthorized();
+ApiError error = unauthorized();
 ```
 
 See [examples](#examples) with Spring MVC
 
 ## Configure
 
-japi-errors supports two error formats "out of the box". They are enabled as follows:
+**japi-errors** supports two error formats "out of the box". They are enabled as follows:
 
 ```
 ApiError.creator(ApiErrorCreators.BASIC); // The default
 ApiError.creator(ApiErrorCreators.WCP);
 ```
 
-### Basic
+### Basic (default)
 
 ```json
 {
   "code": 400,
-  "error": "'id' required."
+  "error": "id required."
 }
 ```
 
@@ -79,7 +81,7 @@ ApiError.creator(ApiErrorCreators.WCP);
   "trace": "1f96a430-dfd8-11e8-9f32-f2801f1b9fd1",
   "errors": [{
     "code": "bad_request",
-    "message": "'id' required."
+    "message": "id required."
   }]
 }
 ```
@@ -109,6 +111,7 @@ public class MyApiErrorCreator implements IApiErrorCreator {
 
 ```java
 // Create a custom api error object
+// Add Json ignore properties (see source code link above)
 public class MyApiError extends ApiError {
   @JsonProperty
   private String message;
@@ -122,7 +125,7 @@ public class MyApiError extends ApiError {
   }
   
   public String getMessage() {
-    return message
+    return message;
   }
 }
 ```
