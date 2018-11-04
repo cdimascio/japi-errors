@@ -6,9 +6,9 @@ Customizable errors for RESTful and HTTP services.
 <img src="https://raw.githubusercontent.com/cdimascio/japi-errors/master/assets/japi-errors.png" width="600">
 </p>
 
-All errors are Jackson ready and can be serialized as JSON, XML, and YAML.
+All errors are Jackson ready and can be serialized as *JSON*, *XML*, and *YAML*.
 
-japi-errors provides two error formats out of the box and also enables you to customize your own. 
+Out of the box, **japi-errors** provides [two error formats](#configure) or enables you to [provide](#customize) your own. 
 
 ## Install
 
