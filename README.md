@@ -35,7 +35,7 @@ Maven
 Import
 
 ```java
-import static io.github.cdimascio.apierrors.ApiError.badRequest;
+import static io.github.cdimascio.japierrors.ApiError.badRequest;
 ```
 
 Throw
@@ -94,12 +94,12 @@ Example:
 // Create an api error creator
 public class MyApiErrorCreator implements IApiErrorCreator {
     @Override
-    public AbstractApiError create(HttpStatus status, String message) {
+    public ApiError create(HttpStatus status, String message) {
         return new MyApiError(message);
     }
 
     @Override
-    public AbstractApiError create(HttpStatus status, Throwable t) {
+    public ApiError create(HttpStatus status, Throwable t) {
         return new MyApiError(t.getMessage());
     }
 }
@@ -107,7 +107,7 @@ public class MyApiErrorCreator implements IApiErrorCreator {
 
 ```java
 // Create a custom api error object
-public class MyApiError extends AbstractApiError {
+public class MyApiError extends ApiError {
   @JsonProperty
   private String message;
   
