@@ -115,7 +115,7 @@ public class MyApiError extends ApiError {
     this.message = message;
   }
   
-  public getMessage() {
+  public String getMessage() {
     return message
   }
 }
