@@ -111,6 +111,10 @@ public class MyApiError extends ApiError {
   @JsonProperty
   private String message;
   
+  MyApiError() {
+      super();
+  }
+  
   MyApiError(String message) {
     this.message = message;
   }
