@@ -25,7 +25,6 @@ Maven
   <groupId>io.github.cdimascio</groupId>
   <artifactId>japi-errors</artifactId>
   <version>1.0.0</version>
-  <type>pom</type>
 </dependency>
 ```
 
