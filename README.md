@@ -38,12 +38,13 @@ Import
 import static io.github.cdimascio.japierrors.ApiError.badRequest;
 ```
 
-Throw
+Throw, any HTTP error and optionally pass an exception or custom message.
 
 ```java
 throw notFound();
 throw badRequest("id required.");
 throw internalServerError(exception);
+//...
 ```
 
 Assign
