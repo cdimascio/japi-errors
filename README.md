@@ -17,7 +17,7 @@ Out of the box, **japi-errors** provides [two error formats](#configure) or enab
 Gradle
 
 ```groovy
-compile 'io.github.cdimascio:japi-errors:1.0.0'
+compile 'io.github.cdimascio:japi-errors:1.1.0'
 ```
 
 Maven
@@ -26,7 +26,7 @@ Maven
 <dependency>
   <groupId>io.github.cdimascio</groupId>
   <artifactId>japi-errors</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
 </dependency>
 ```
 
