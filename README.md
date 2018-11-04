@@ -3,12 +3,12 @@
 Customizable errors for RESTful and HTTP services. 
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/cdimascio/japi-errors/master/assets/japi-errors.png" width="400">
+<img src="https://raw.githubusercontent.com/cdimascio/japi-errors/master/assets/japi-errors.png" width="600">
 </p>
 
-All errors are Jackson ready and can be serialized as JSON, XML, and YAML.
+All errors are Jackson ready and can be serialized as *JSON*, *XML*, and *YAML*.
 
-japi-errors provides two error formats out of the box and also enables you to customize your own. 
+Out of the box, **japi-errors** provides [two error formats](#configure) or enables you to [provide](#customize) your own. 
 
 ## Install
 
@@ -25,7 +25,6 @@ Maven
   <groupId>io.github.cdimascio</groupId>
   <artifactId>japi-errors</artifactId>
   <version>1.0.0</version>
-  <type>pom</type>
 </dependency>
 ```
 
@@ -75,7 +74,7 @@ ApiError.creator(ApiErrorCreators.WCP);
 {
   "trace": "1f96a430-dfd8-11e8-9f32-f2801f1b9fd1",
   "errors": [{
-    "code": "bad_request".
+    "code": "bad_request",
     "message": "'id' required."
   }]
 }
