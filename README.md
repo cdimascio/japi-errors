@@ -69,7 +69,7 @@ ApiError.creator(ApiErrorCreators.WCP);
 ```json
 {
   "code": 400,
-  "error": "'id' required."
+  "error": "id required."
 }
 ```
 
@@ -80,7 +80,7 @@ ApiError.creator(ApiErrorCreators.WCP);
   "trace": "1f96a430-dfd8-11e8-9f32-f2801f1b9fd1",
   "errors": [{
     "code": "bad_request",
-    "message": "'id' required."
+    "message": "id required."
   }]
 }
 ```
