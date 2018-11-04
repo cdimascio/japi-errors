@@ -1,14 +1,13 @@
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.cdimascio.apierrors.AbstractApiError;
-import io.github.cdimascio.apierrors.ApiError;
-import static io.github.cdimascio.apierrors.ApiError.badRequest;
-import io.github.cdimascio.apierrors.ApiErrorCreator;
-import io.github.cdimascio.apierrors.basic.ApiErrorBasic;
+import io.github.cdimascio.japierrors.ApiError;
+import io.github.cdimascio.japierrors.ApiErrorCreator;
+import io.github.cdimascio.japierrors.basic.ApiErrorBasic;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static io.github.cdimascio.japierrors.ApiError.badRequest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -33,7 +32,7 @@ public class ApiErrorBasicSpec {
 
     @Test
     public void badRequestJson() {
-        AbstractApiError error = ApiError.badRequest();
+        ApiError error = ApiError.badRequest();
         JsonNode node = m.convertValue(error, JsonNode.class);
         assertNull(node.get("message"));
         assertEquals("bad request", node.get("error").asText());

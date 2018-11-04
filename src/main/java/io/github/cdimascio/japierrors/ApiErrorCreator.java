@@ -1,7 +1,7 @@
-package io.github.cdimascio.apierrors;
+package io.github.cdimascio.japierrors;
 
-import io.github.cdimascio.apierrors.basic.ApiErrorBasicCreator;
-import io.github.cdimascio.apierrors.wcp.ApiErrorWcpCreator;
+import io.github.cdimascio.japierrors.basic.ApiErrorBasicCreator;
+import io.github.cdimascio.japierrors.wcp.ApiErrorWcpCreator;
 
 public class ApiErrorCreator {
     public static final IApiErrorCreator BASIC = new ApiErrorBasicCreator();

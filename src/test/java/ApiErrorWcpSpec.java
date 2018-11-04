@@ -1,9 +1,8 @@
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.cdimascio.apierrors.AbstractApiError;
-import io.github.cdimascio.apierrors.ApiError;
-import io.github.cdimascio.apierrors.ApiErrorCreator;
-import io.github.cdimascio.apierrors.wcp.ApiErrorWcp;
+import io.github.cdimascio.japierrors.ApiError;
+import io.github.cdimascio.japierrors.ApiErrorCreator;
+import io.github.cdimascio.japierrors.wcp.ApiErrorWcp;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -33,7 +32,7 @@ public class ApiErrorWcpSpec {
 
     @Test
     public void badRequestJson() {
-        AbstractApiError error = ApiError.badRequest();
+        ApiError error = ApiError.badRequest();
         JsonNode node = m.convertValue(error, JsonNode.class);
         assertNull(node.get("message"));
         assertEquals("bad_request", node.get("errors").get(0).get("code").asText());

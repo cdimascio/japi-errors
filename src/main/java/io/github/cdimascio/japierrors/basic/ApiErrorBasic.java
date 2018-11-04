@@ -1,8 +1,8 @@
-package io.github.cdimascio.apierrors.basic;
+package io.github.cdimascio.japierrors.basic;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.github.cdimascio.apierrors.AbstractApiError;
+import io.github.cdimascio.japierrors.ApiError;
 
 import java.util.Objects;
 
@@ -13,7 +13,7 @@ import java.util.Objects;
         isGetterVisibility = JsonAutoDetect.Visibility.NONE,
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
-public class ApiErrorBasic extends AbstractApiError {
+public class ApiErrorBasic extends ApiError {
     @JsonProperty
     private String error;
     @JsonProperty

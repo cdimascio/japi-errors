@@ -1,6 +1,6 @@
-package io.github.cdimascio.apierrors;
+package io.github.cdimascio.japierrors;
 
-public class ApiError extends AbstractApiError {
+public abstract class ApiError extends Exception {
     private static IApiErrorCreator error = ApiErrorCreator.BASIC;
 
     public static void creator(IApiErrorCreator creator) {
@@ -11,7 +11,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exceptioo or throwable
      * @return The api error
      */
-    public static AbstractApiError badRequest(Throwable t) {
+    public static ApiError badRequest(Throwable t) {
         return error.create(HttpStatus.BAD_REQUEST, t);
     }
 
@@ -20,7 +20,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError badRequest(String message) {
+    public static ApiError badRequest(String message) {
         return error.create(HttpStatus.BAD_REQUEST, message);
     }
 
@@ -28,7 +28,7 @@ public class ApiError extends AbstractApiError {
      * Creates a bad request api error
      * @return The api error
      */
-    public static AbstractApiError badRequest() {
+    public static ApiError badRequest() {
         return error.create(HttpStatus.BAD_REQUEST, "bad request");
     }
 
@@ -37,7 +37,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError conflict(Throwable t) {
+    public static ApiError conflict(Throwable t) {
         return error.create(HttpStatus.CONFLICT, t);
     }
 
@@ -46,7 +46,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError conflict(String message) {
+    public static ApiError conflict(String message) {
         return error.create(HttpStatus.CONFLICT, message);
     }
 
@@ -54,7 +54,7 @@ public class ApiError extends AbstractApiError {
      * Creates a conflict error
      * @return The api error
      */
-    public static AbstractApiError conflict() {
+    public static ApiError conflict() {
         return error.create(HttpStatus.CONFLICT, "conflict");
     }
 
@@ -63,7 +63,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError forbidden(Throwable t) {
+    public static ApiError forbidden(Throwable t) {
         return error.create(HttpStatus.FORBIDDEN, t);
     }
 
@@ -72,7 +72,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError forbidden(String message) {
+    public static ApiError forbidden(String message) {
         return error.create(HttpStatus.FORBIDDEN, message);
     }
 
@@ -80,7 +80,7 @@ public class ApiError extends AbstractApiError {
      * Creates a forbidden error
      * @return The api error
      */
-    public static AbstractApiError forbidden() {
+    public static ApiError forbidden() {
         return error.create(HttpStatus.FORBIDDEN, "forbidden");
     }
 
@@ -89,7 +89,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError gatewayTimeout(Throwable t) {
+    public static ApiError gatewayTimeout(Throwable t) {
         return error.create(HttpStatus.GATEWAY_TIMEOUT, t);
     }
 
@@ -98,7 +98,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError gatewayTimeout(String message) {
+    public static ApiError gatewayTimeout(String message) {
         return error.create(HttpStatus.GATEWAY_TIMEOUT, message);
     }
 
@@ -106,7 +106,7 @@ public class ApiError extends AbstractApiError {
      * Creates a gateway timeout error
      * @return The api error
      */
-    public static AbstractApiError gatewayTimeout() {
+    public static ApiError gatewayTimeout() {
         return error.create(HttpStatus.GATEWAY_TIMEOUT, "gateway timeout");
     }
 
@@ -115,7 +115,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError gone(Throwable t) {
+    public static ApiError gone(Throwable t) {
         return error.create(HttpStatus.GONE, t);
     }
 
@@ -124,7 +124,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError gone(String message) {
+    public static ApiError gone(String message) {
         return error.create(HttpStatus.GONE, message);
     }
 
@@ -132,7 +132,7 @@ public class ApiError extends AbstractApiError {
      * Creates a gone error
      * @return The api error
      */
-    public static AbstractApiError gone() {
+    public static ApiError gone() {
         return error.create(HttpStatus.GONE, "gone");
     }
 
@@ -141,7 +141,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError internalServerError(Throwable t) {
+    public static ApiError internalServerError(Throwable t) {
         return error.create(HttpStatus.INTERNAL_SERVER_ERROR, t);
     }
 
@@ -150,7 +150,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError internalServerError(String message) {
+    public static ApiError internalServerError(String message) {
         return error.create(HttpStatus.INTERNAL_SERVER_ERROR, message);
     }
 
@@ -158,7 +158,7 @@ public class ApiError extends AbstractApiError {
      * Creates an internal server error
      * @return The api error
      */
-    public static AbstractApiError internalServerError() {
+    public static ApiError internalServerError() {
         return error.create(HttpStatus.INTERNAL_SERVER_ERROR, "internal server error");
     }
 
@@ -167,7 +167,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError notAcceptable(Throwable t) {
+    public static ApiError notAcceptable(Throwable t) {
         return error.create(HttpStatus.NOT_ACCEPTABLE, t);
     }
     /**
@@ -175,7 +175,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError notAcceptable(String message) {
+    public static ApiError notAcceptable(String message) {
         return error.create(HttpStatus.NOT_ACCEPTABLE, message);
     }
 
@@ -183,7 +183,7 @@ public class ApiError extends AbstractApiError {
      * Creates a not acceptable error
      * @return The api error
      */
-    public static AbstractApiError notAcceptable() {
+    public static ApiError notAcceptable() {
         return error.create(HttpStatus.NOT_ACCEPTABLE, "not found");
     }
 
@@ -192,7 +192,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError notFound(Throwable t) {
+    public static ApiError notFound(Throwable t) {
         return error.create(HttpStatus.NOT_FOUND, t);
     }
 
@@ -201,7 +201,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError notFound(String message) {
+    public static ApiError notFound(String message) {
         return error.create(HttpStatus.NOT_FOUND, message);
     }
 
@@ -209,7 +209,7 @@ public class ApiError extends AbstractApiError {
      * Creates a not found error
      * @return The api error
      */
-    public static AbstractApiError notFound() {
+    public static ApiError notFound() {
         return error.create(HttpStatus.NOT_FOUND, "not found");
     }
 
@@ -218,7 +218,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError notImplemented(Throwable t) {
+    public static ApiError notImplemented(Throwable t) {
         return error.create(HttpStatus.NOT_IMPLEMENTED, t);
     }
 
@@ -227,7 +227,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError notImplemented(String message) {
+    public static ApiError notImplemented(String message) {
         return error.create(HttpStatus.NOT_IMPLEMENTED, message);
     }
 
@@ -235,7 +235,7 @@ public class ApiError extends AbstractApiError {
      * Creates a not implemented error
      * @return The api error
      */
-    public static AbstractApiError notImplemented() {
+    public static ApiError notImplemented() {
         return error.create(HttpStatus.NOT_IMPLEMENTED, "not implemented");
     }
 
@@ -244,7 +244,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError preconditionFailed(Throwable t) {
+    public static ApiError preconditionFailed(Throwable t) {
         return error.create(HttpStatus.PRECONDITION_FAILED, t);
     }
 
@@ -253,7 +253,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError preconditionFailed(String message) {
+    public static ApiError preconditionFailed(String message) {
         return error.create(HttpStatus.PRECONDITION_FAILED, message);
     }
 
@@ -261,7 +261,7 @@ public class ApiError extends AbstractApiError {
      * Creates a precondition failed error
      * @return The api error
      */
-    public static AbstractApiError preconditionFailed() {
+    public static ApiError preconditionFailed() {
         return error.create(HttpStatus.PRECONDITION_FAILED, "precondition failed");
     }
 
@@ -270,7 +270,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError preconditionRequired(Throwable t) {
+    public static ApiError preconditionRequired(Throwable t) {
         return error.create(HttpStatus.PRECONDITION_REQUIRED, t);
     }
 
@@ -279,7 +279,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError preconditionRequired(String message) {
+    public static ApiError preconditionRequired(String message) {
         return error.create(HttpStatus.PRECONDITION_REQUIRED, message);
     }
 
@@ -287,7 +287,7 @@ public class ApiError extends AbstractApiError {
      * Creates a precondition required error
      * @return The api error
      */
-    public static AbstractApiError preconditionRequired() {
+    public static ApiError preconditionRequired() {
         return error.create(HttpStatus.PRECONDITION_REQUIRED, "precondition required");
     }
 
@@ -296,7 +296,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError proxyAuthenticationRequired(Throwable t) {
+    public static ApiError proxyAuthenticationRequired(Throwable t) {
         return error.create(HttpStatus.PROXY_AUTHENTICATION_REQUIRED, t);
     }
 
@@ -305,7 +305,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError proxyAuthenticationRequired(String message) {
+    public static ApiError proxyAuthenticationRequired(String message) {
         return error.create(HttpStatus.PROXY_AUTHENTICATION_REQUIRED, message);
     }
 
@@ -313,7 +313,7 @@ public class ApiError extends AbstractApiError {
      * Creates a proxy authentication required error
      * @return The api error
      */
-    public static AbstractApiError proxyAuthenticationRequired() {
+    public static ApiError proxyAuthenticationRequired() {
         return error.create(HttpStatus.PROXY_AUTHENTICATION_REQUIRED, "proxy authentication required");
     }
 
@@ -322,7 +322,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError requestEntityTooLarge(Throwable t) {
+    public static ApiError requestEntityTooLarge(Throwable t) {
         return error.create(HttpStatus.REQUEST_ENTITY_TOO_LARGE, t);
     }
 
@@ -331,7 +331,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError requestEntityTooLarge(String message) {
+    public static ApiError requestEntityTooLarge(String message) {
         return error.create(HttpStatus.REQUEST_ENTITY_TOO_LARGE, message);
     }
 
@@ -339,7 +339,7 @@ public class ApiError extends AbstractApiError {
      * Creates a request entity too large error
      * @return The api error
      */
-    public static AbstractApiError requestEntityTooLarge() {
+    public static ApiError requestEntityTooLarge() {
         return error.create(HttpStatus.NOT_IMPLEMENTED, "not implemented");
     }
 
@@ -348,7 +348,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError serviceUnavailable(Throwable t) {
+    public static ApiError serviceUnavailable(Throwable t) {
         return error.create(HttpStatus.SERVICE_UNAVAILABLE, t);
     }
 
@@ -357,7 +357,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError serviceUnavailable(String message) {
+    public static ApiError serviceUnavailable(String message) {
         return error.create(HttpStatus.SERVICE_UNAVAILABLE, message);
     }
 
@@ -365,7 +365,7 @@ public class ApiError extends AbstractApiError {
      * Creates a service unavailable error
      * @return The api error
      */
-    public static AbstractApiError serviceUnavailable() {
+    public static ApiError serviceUnavailable() {
         return error.create(HttpStatus.SERVICE_UNAVAILABLE, "service unavailable");
     }
 
@@ -374,7 +374,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError unauthorized(Throwable t) {
+    public static ApiError unauthorized(Throwable t) {
         return error.create(HttpStatus.UNAUTHORIZED, t);
     }
 
@@ -383,7 +383,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError unauthorized(String message) {
+    public static ApiError unauthorized(String message) {
         return error.create(HttpStatus.UNAUTHORIZED, message);
     }
 
@@ -391,7 +391,7 @@ public class ApiError extends AbstractApiError {
      * Creates an unauthorized error
      * @return The api error
      */
-    public static AbstractApiError unauthorized() {
+    public static ApiError unauthorized() {
         return error.create(HttpStatus.UNAUTHORIZED, "unauthorized");
     }
 
@@ -400,7 +400,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError unavailableForLegalReasons(Throwable t) {
+    public static ApiError unavailableForLegalReasons(Throwable t) {
         return error.create(HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS, t);
     }
 
@@ -409,7 +409,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError unavailableForLegalReasons(String message) {
+    public static ApiError unavailableForLegalReasons(String message) {
         return error.create(HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS, message);
     }
 
@@ -417,7 +417,7 @@ public class ApiError extends AbstractApiError {
      * Creates an unavailable for legal reasons error
      * @return The api error
      */
-    public static AbstractApiError unavailableForLegalReasons() {
+    public static ApiError unavailableForLegalReasons() {
         return error.create(HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS, "unavailable for legal reasons");
     }
 
@@ -426,7 +426,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError unsupportedMediaType(Throwable t) {
+    public static ApiError unsupportedMediaType(Throwable t) {
         return error.create(HttpStatus.UNSUPPORTED_MEDIA_TYPE, t);
     }
 
@@ -435,7 +435,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError unsupportedMediaType(String message) {
+    public static ApiError unsupportedMediaType(String message) {
         return error.create(HttpStatus.UNSUPPORTED_MEDIA_TYPE, message);
     }
 
@@ -443,7 +443,7 @@ public class ApiError extends AbstractApiError {
      * Creates an unsupported media type error
      * @return The api error
      */
-    public static AbstractApiError unsupportedMediaType() {
+    public static ApiError unsupportedMediaType() {
         return error.create(HttpStatus.UNSUPPORTED_MEDIA_TYPE, "unsupported media type");
     }
 
@@ -452,7 +452,7 @@ public class ApiError extends AbstractApiError {
      * @param t The exception or throwable
      * @return The api error
      */
-    public static AbstractApiError upgradeRequired(Throwable t) {
+    public static ApiError upgradeRequired(Throwable t) {
         return error.create(HttpStatus.UPGRADE_REQUIRED, t);
     }
 
@@ -461,7 +461,7 @@ public class ApiError extends AbstractApiError {
      * @param message The message
      * @return The api error
      */
-    public static AbstractApiError upgradeRequired(String message) {
+    public static ApiError upgradeRequired(String message) {
         return error.create(HttpStatus.UPGRADE_REQUIRED, message);
     }
 
@@ -469,7 +469,7 @@ public class ApiError extends AbstractApiError {
      * Creates an upgrade required error
      * @return The api error
      */
-    public static AbstractApiError upgradeRequired() {
+    public static ApiError upgradeRequired() {
         return error.create(HttpStatus.UPGRADE_REQUIRED, "upgrade required");
     }
 }

@@ -1,10 +1,10 @@
-package io.github.cdimascio.apierrors.wcp;
+package io.github.cdimascio.japierrors.wcp;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import io.github.cdimascio.apierrors.AbstractApiError;
-import io.github.cdimascio.apierrors.HttpStatus;
+import io.github.cdimascio.japierrors.ApiError;
+import io.github.cdimascio.japierrors.HttpStatus;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import java.util.List;
         isGetterVisibility = JsonAutoDetect.Visibility.NONE,
         creatorVisibility = JsonAutoDetect.Visibility.NONE
 )
-public class ApiErrorWcp extends AbstractApiError {
+public class ApiErrorWcp extends ApiError {
     @JsonProperty
     private String trace;
     @JsonProperty

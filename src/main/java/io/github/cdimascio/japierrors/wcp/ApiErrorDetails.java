@@ -1,4 +1,4 @@
-package io.github.cdimascio.apierrors.wcp;
+package io.github.cdimascio.japierrors.wcp;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,4 +1,4 @@
-package io.github.cdimascio.apierrors;
+package io.github.cdimascio.japierrors;
 
 
 public enum HttpStatus {
