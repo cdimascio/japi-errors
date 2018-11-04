@@ -32,7 +32,7 @@ public class ApiErrorBasicSpec {
 
     @Test
     public void badRequestJson() {
-        ApiError error = ApiError.badRequest();
+        ApiErrorBasic error = ApiError.badRequest();
         JsonNode node = m.convertValue(error, JsonNode.class);
         assertNull(node.get("message"));
         assertEquals("bad request", node.get("error").asText());

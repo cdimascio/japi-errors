@@ -1,6 +1,5 @@
 package io.github.cdimascio.japierrors.wcp;
 
-import io.github.cdimascio.japierrors.ApiError;
 import io.github.cdimascio.japierrors.HttpStatus;
 import io.github.cdimascio.japierrors.IApiErrorCreator;
 
@@ -8,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class ApiErrorWcpCreator implements IApiErrorCreator {
+public class ApiErrorWcpCreator implements IApiErrorCreator<ApiErrorWcp> {
     @Override
-    public ApiError create(HttpStatus status, String message) {
+    public ApiErrorWcp create(HttpStatus status, String message) {
         final ApiErrorDetails details = new ApiErrorDetails();
         details.code = statusToCode(status);
         details.message = message;
@@ -23,7 +22,7 @@ public class ApiErrorWcpCreator implements IApiErrorCreator {
     }
 
     @Override
-    public ApiError create(HttpStatus status, Throwable t) {
+    public ApiErrorWcp create(HttpStatus status, Throwable t) {
         final ApiErrorDetails details = new ApiErrorDetails();
         details.code = statusToCode(status);
         details.message = t.getMessage(); //.isEmpty() ? status.getReasonPhrase() : t.getMessage();

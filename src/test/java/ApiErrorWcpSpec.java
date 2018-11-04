@@ -22,7 +22,7 @@ public class ApiErrorWcpSpec {
     public void badRequest() {
         String message = "oh no";
         ApiErrorWcp error = Assertions.assertThrows(ApiErrorWcp.class, () -> {
-            throw ApiError.badRequest(message);
+            throw ApiErrorWcp.badRequest(message);
         });
         Assertions.assertNotNull(error.getTrace());
         Assertions.assertEquals(error.getStatus().getCode(), 400);

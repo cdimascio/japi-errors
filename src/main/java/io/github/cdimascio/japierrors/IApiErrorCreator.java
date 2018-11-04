@@ -1,6 +1,6 @@
 package io.github.cdimascio.japierrors;
 
-public interface IApiErrorCreator {
-    ApiError create(HttpStatus status, String message);
-    ApiError create(HttpStatus status, Throwable t);
+public interface IApiErrorCreator<T extends ApiError> {
+    T create(HttpStatus status, String message);
+    T create(HttpStatus status, Throwable t);
 }
