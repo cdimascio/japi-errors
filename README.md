@@ -84,21 +84,40 @@ ApiError.creator(ApiErrorCreators.WCP);
 
 ## Customize
 
-japi-errors enables developer to craft their own error format. To do so implement the `ApiErrorCreator` interface, then pass an instance of your creator to `ApiError.creator(myApiErrorCreator)`
+**japi-errors** enables developers to craft custom error objects. To do so implement the `ApiErrorCreator` interface, then pass an instance of your creator to `ApiError.creator(myApiErrorCreator)`
+
+To see a working example, check out this [source code](https://github.com/cdimascio/japi-errors/blob/master/src/main/java/io/github/cdimascio/apierrors/basic/ApiErrorBasic.java)
 
 Example:
 
 ```java
+// Create an api error creator
 public class MyApiErrorCreator implements IApiErrorCreator {
     @Override
     public AbstractApiError create(HttpStatus status, String message) {
-        return new ApiErrorBasic(status.getCode(), message);
+        return new MyApiError(message);
     }
 
     @Override
     public AbstractApiError create(HttpStatus status, Throwable t) {
-        return new ApiErrorBasic(status.getCode(), t.getMessage());
+        return new MyApiError(t.getMessage());
     }
+}
+```
+
+```java
+// Create a custom api error object
+public class MyApiError extends AbstractApiError {
+  @JsonProperty
+  private String message;
+  
+  MyApiError(String message) {
+    this.message = message;
+  }
+  
+  public getMessage() {
+    return message
+  }
 }
 ```
 
