@@ -39,7 +39,7 @@ import static io.github.cdimascio.japierrors.ApiError.badRequest;
 // ...
 ```
 
-Throw, any HTTP error and optionally pass an exception or custom message.
+Throw any HTTP error and optionally pass an exception or custom message.
 
 ```java
 throw notFound();
