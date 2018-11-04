@@ -19,6 +19,10 @@ public class ApiErrorBasic extends ApiError {
     @JsonProperty
     private Integer code;
 
+    ApiErrorBasic() {
+        super();
+    }
+
     ApiErrorBasic(Integer code, String error) {
         this.code = code;
         this.error = error;
