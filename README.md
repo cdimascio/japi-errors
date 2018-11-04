@@ -84,7 +84,7 @@ ApiError.creator(ApiErrorCreators.WCP);
 
 ## Customize
 
-**japi-errors** enables developers to craft custom error objects. To do so implement the `ApiErrorCreator` interface, then pass an instance of your creator to `ApiError.creator(myApiErrorCreator)`
+**japi-errors** enables developers to craft custom error objects. To do so, implement the `ApiErrorCreator` interface, then pass an instance of your creator to `ApiError.creator(myApiErrorCreator)`
 
 To see a working example, check out this [source code](https://github.com/cdimascio/japi-errors/blob/master/src/main/java/io/github/cdimascio/apierrors/basic/ApiErrorBasic.java)
 
