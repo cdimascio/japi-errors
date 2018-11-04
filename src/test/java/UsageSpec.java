@@ -1,13 +1,11 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import io.github.cdimascio.japierrors.ApiError;
 import io.github.cdimascio.japierrors.ApiErrorCreator;
 import io.github.cdimascio.japierrors.basic.ApiErrorBasic;
-import io.github.cdimascio.japierrors.wcp.ApiErrorWcp;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -38,25 +36,45 @@ public class UsageSpec {
 //    }
 
     @Test
-    public void unirestAutoConvert() {
+    public void serializeToJson() {
         try {
-            ApiErrorBasic error = Unirest.get("http://mockbin.org/status/404/not_found").asObject(ApiErrorBasic.class).getBody();
-            assertEquals(404, error.getCode());
-        } catch (UnirestException e) {
+            ObjectMapper mapper = new ObjectMapper();
+            String s = mapper.writeValueAsString(ApiError.badRequest());
+            System.out.println(s);
+            JsonNode json = mapper.readTree(s);
+            assertNull(json.get("cause"));
+            assertNull(json.get("message"));
+            assertEquals(400, json.get("code").asInt());
+            assertEquals("bad request", json.get("error").asText());
+        } catch (IOException e) {
             e.printStackTrace();
             fail("unexpected exception");
         }
     }
 
     @Test
-    public void unirestJson() {
-        try {
-            HttpResponse<JsonNode> res = Unirest.get("http://mockbin.org/status/404/not_found").asObject(JsonNode.class);
-            assertEquals(404, res.getStatus());
-            JsonNode body = res.getBody();
-            System.out.println(body);
-            assertNull(body.get("cause"));
+    public void deserializeToApiError() {
 
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode json = mapper.createObjectNode()
+                .put("code", 400)
+                .put("error", "bad request")
+                .put("extra", "junk");
+
+        ApiErrorBasic error = mapper.convertValue(json, ApiErrorBasic.class);
+
+        assertEquals(400, error.getCode());
+        assertEquals("bad request", error.getError());
+    }
+
+    @Test
+    public void httpErrorToApiError() {
+        try {
+            ApiErrorBasic error = Unirest
+                    .get("http://mockbin.org/status/404/not_found")
+                    .asObject(ApiErrorBasic.class).getBody();
+
+            assertEquals(404, error.getCode());
         } catch (UnirestException e) {
             e.printStackTrace();
             fail("unexpected exception");
