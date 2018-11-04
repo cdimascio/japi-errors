@@ -3,7 +3,7 @@
 Customizable errors for RESTful and HTTP services. 
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/cdimascio/japi-errors/master/assets/japi-errors.png" width="400">
+<img src="https://raw.githubusercontent.com/cdimascio/japi-errors/master/assets/japi-errors.png" width="600">
 </p>
 
 All errors are Jackson ready and can be serialized as JSON, XML, and YAML.
