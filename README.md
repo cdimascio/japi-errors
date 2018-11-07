@@ -17,7 +17,7 @@ All 'out of the box' errors are Jackson ready and can be serialized as *JSON*, *
 Gradle
 
 ```groovy
-compile 'io.github.cdimascio:japi-errors:1.1.2'
+compile 'io.github.cdimascio:japi-errors:1.1.4'
 ```
 
 Maven
@@ -26,7 +26,7 @@ Maven
 <dependency>
   <groupId>io.github.cdimascio</groupId>
   <artifactId>japi-errors</artifactId>
-  <version>1.1.2</version>
+  <version>1.1.4</version>
 </dependency>
 ```
 
