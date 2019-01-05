@@ -45,6 +45,29 @@ public enum HttpStatus {
         return this.description;
     }
 
+    public static HttpStatus fromCode(int code) {
+        switch(code) {
+            case 400: return BAD_REQUEST;
+            case 409: return CONFLICT;
+            case 403: return FORBIDDEN;
+            case 504: return GATEWAY_TIMEOUT;
+            case 410: return GONE;
+            case 500: return INTERNAL_SERVER_ERROR;
+            case 406: return NOT_ACCEPTABLE;
+            case 404: return NOT_FOUND;
+            case 501: return NOT_IMPLEMENTED;
+            case 412: return PRECONDITION_FAILED;
+            case 428: return PRECONDITION_REQUIRED;
+            case 407: return PROXY_AUTHENTICATION_REQUIRED;
+            case 413: return REQUEST_ENTITY_TOO_LARGE;
+            case 503: return SERVICE_UNAVAILABLE;
+            case 401: return UNAUTHORIZED;
+            case 451: return UNAVAILABLE_FOR_LEGAL_REASONS;
+            case 415: return UNSUPPORTED_MEDIA_TYPE;
+            case 426: return UPGRADE_REQUIRED;
+            default: throw new IllegalArgumentException("unknown status code " +code);
+        }
+    }
     @Override
     public String toString() {
         return "HttpStatus{" +

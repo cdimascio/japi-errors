@@ -11,6 +11,7 @@ public abstract class ApiError extends Exception {
     private static <T extends ApiError> IApiErrorCreator<T> getCreator() {
         return error;
     }
+
     /**
      * Create a bad request api error using the specified throwable
      * @param t The exceptioo or throwable
@@ -476,6 +477,32 @@ public abstract class ApiError extends Exception {
      */
     public static <T extends ApiError> T upgradeRequired() {
         return (T) error.create(HttpStatus.UPGRADE_REQUIRED, "upgrade required");
+    }
+
+    /**
+     * Creates an upgrade required error with the specified exception or throwable
+     * @param t The exception or throwable
+     * @return The api error
+     */
+    public static <T extends ApiError> T error(int code, Throwable t) {
+        return (T) error.create(HttpStatus.fromCode(code), t);
+    }
+
+    /**
+     * Creates an upgrade required error with the specified message
+     * @param message The message
+     * @return The api error
+     */
+    public static <T extends ApiError> T error(int code, String message) {
+        return (T) error.create(HttpStatus.fromCode(code), message);
+    }
+
+    /**
+     * Creates an upgrade required error
+     * @return The api error
+     */
+    public static <T extends ApiError> T error(int code) {
+        return (T) error.create(HttpStatus.fromCode(code), "error");
     }
 }
 
