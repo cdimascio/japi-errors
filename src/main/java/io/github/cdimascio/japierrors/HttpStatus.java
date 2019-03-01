@@ -13,6 +13,7 @@ public enum HttpStatus {
     NOT_IMPLEMENTED(501, "not implemented"),
     PRECONDITION_FAILED(412, "precondition failed"),
     PRECONDITION_REQUIRED(428, "precondition required"),
+    TOO_MANY_REQUESTS(429, "too many requests"),
     PROXY_AUTHENTICATION_REQUIRED(407, "proxy authentication required"),
     REQUEST_ENTITY_TOO_LARGE(413, "request entity too large"),
     SERVICE_UNAVAILABLE(503, "service unavailable"),
@@ -61,6 +62,7 @@ public enum HttpStatus {
             case 407: return PROXY_AUTHENTICATION_REQUIRED;
             case 413: return REQUEST_ENTITY_TOO_LARGE;
             case 503: return SERVICE_UNAVAILABLE;
+            case 429: return TOO_MANY_REQUESTS;
             case 401: return UNAUTHORIZED;
             case 451: return UNAVAILABLE_FOR_LEGAL_REASONS;
             case 415: return UNSUPPORTED_MEDIA_TYPE;

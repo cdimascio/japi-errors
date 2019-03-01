@@ -38,4 +38,24 @@ public class ApiErrorWcpSpec {
         assertEquals("bad_request", node.get("errors").get(0).get("code").asText());
         assertEquals("bad request", node.get("errors").get(0).get("message").asText());
     }
+
+    @Test
+    public void tooManyRequests() {
+        String message = "oh no";
+        ApiErrorWcp error = Assertions.assertThrows(ApiErrorWcp.class, () -> {
+            throw ApiErrorWcp.tooManyRequests(message);
+        });
+        Assertions.assertNotNull(error.getTrace());
+        Assertions.assertEquals(error.getStatus().getCode(), 429);
+        Assertions.assertEquals(error.getErrors().get(0).getCode(), "too_many_requests");
+        Assertions.assertEquals(error.getErrors().get(0).getMessage(), message);
+    }
+    @Test
+    public void tooManyRequestsJson() {
+        ApiError error = ApiError.tooManyRequests();
+        JsonNode node = m.convertValue(error, JsonNode.class);
+        assertNull(node.get("message"));
+        assertEquals("too_many_requests", node.get("errors").get(0).get("code").asText());
+        assertEquals("too many requests", node.get("errors").get(0).get("message").asText());
+    }
 }

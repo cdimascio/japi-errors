@@ -376,6 +376,32 @@ public abstract class ApiError extends Exception {
     }
 
     /**
+     * Creates a too many requests error with the specified exception or throwable
+     * @param t The exception or throwable
+     * @return The api error
+     */
+    public static <T extends ApiError> T tooManyRequests(Throwable t) {
+        return (T) error.create(HttpStatus.TOO_MANY_REQUESTS, t);
+    }
+
+    /**
+     * Creates a too many requests error with the specified message
+     * @param message The message
+     * @return The api error
+     */
+    public static <T extends ApiError> T tooManyRequests(String message) {
+        return (T) error.create(HttpStatus.TOO_MANY_REQUESTS, message);
+    }
+
+    /**
+     * Creates a too many requests error
+     * @return The api error
+     */
+    public static <T extends ApiError> T tooManyRequests() {
+        return (T) error.create(HttpStatus.TOO_MANY_REQUESTS, "too many requests");
+    }
+
+    /**
      * Creates an unauthorized error with the specified exception or throwable
      * @param t The exception or throwable
      * @return The api error
