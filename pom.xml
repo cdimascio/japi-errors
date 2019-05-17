@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>jwcp-errors</name>
+    <name>japi-errors</name>
     <description>Errors for http apis</description>
-    <url>https://github.com/cdimascio/jwcp-errors</url>
+    <url>https://github.com/cdimascio/japi-errors</url>
 
     <groupId>io.github.cdimascio</groupId>
     <artifactId>japi-errors</artifactId>
-    <version>1.3.0</version>
+    <version>1.3.1</version>
 
     <licenses>
         <license>
@@ -50,7 +50,6 @@
 
 
     <properties>
-        <kotlin.version>1.3.0</kotlin.version>
         <main.class>io.github.cdimascio.japierrors.ApiErrors</main.class>
         <junit.version>4.12</junit.version>
         <jackson.version>2.9.7</jackson.version>
@@ -59,7 +58,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <maven.source.plugin>3.0.1</maven.source.plugin>
-        <maven.javadoc.plugin>3.0.0</maven.javadoc.plugin>
+        <maven.javadoc.plugin>3.1.0</maven.javadoc.plugin>
         <dokka.version>0.9.15</dokka.version>
         <bintray.subject>cdimascio</bintray.subject>
         <bintray.repo>maven</bintray.repo>

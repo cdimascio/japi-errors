@@ -4,6 +4,10 @@ package io.github.cdimascio.japierrors;
 public abstract class ApiError extends Exception {
     private static IApiErrorCreator error = ApiErrorCreator.BASIC;
 
+    /**
+     * @param creator the api creator instance e.g ApiErrorBasicCreator
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
+     */
     public static <T extends ApiError> void creator(IApiErrorCreator<T> creator) {
         error = creator;
     }
@@ -14,7 +18,9 @@ public abstract class ApiError extends Exception {
 
     /**
      * Create a bad request api error using the specified throwable
+//     * @param T The type of ApiError
      * @param t The exceptioo or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T badRequest(Throwable t) {
@@ -24,6 +30,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a bad request api error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static  <T extends ApiError> T badRequest(String message) {
@@ -32,6 +39,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a bad request api error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static  <T extends ApiError> T badRequest() {
@@ -41,6 +49,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a conflict api error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T conflict(Throwable t) {
@@ -50,6 +59,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a conflict api error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T conflict(String message) {
@@ -58,6 +68,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a conflict error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T conflict() {
@@ -67,6 +78,7 @@ public abstract class ApiError extends Exception {
     /**
      * Create a forbidden error using the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T forbidden(Throwable t) {
@@ -76,6 +88,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a forbidden error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T forbidden(String message) {
@@ -84,6 +97,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a forbidden error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T forbidden() {
@@ -93,6 +107,7 @@ public abstract class ApiError extends Exception {
     /**
      * Create a gateway timeout error using the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T gatewayTimeout(Throwable t) {
@@ -102,6 +117,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a gateway timeout error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T gatewayTimeout(String message) {
@@ -110,6 +126,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a gateway timeout error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T gatewayTimeout() {
@@ -119,6 +136,7 @@ public abstract class ApiError extends Exception {
     /**
      * Create a gone error using the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T gone(Throwable t) {
@@ -128,6 +146,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a gone error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T gone(String message) {
@@ -136,6 +155,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a gone error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T gone() {
@@ -145,6 +165,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates an internal server error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T internalServerError(Throwable t) {
@@ -154,6 +175,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates an internal server error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T internalServerError(String message) {
@@ -162,6 +184,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates an internal server error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T internalServerError() {
@@ -171,6 +194,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a not acceptable error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T notAcceptable(Throwable t) {
@@ -179,6 +203,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a not acceptable error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T notAcceptable(String message) {
@@ -187,6 +212,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a not acceptable error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T notAcceptable() {
@@ -196,6 +222,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a not found error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T notFound(Throwable t) {
@@ -205,6 +232,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a not found error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T notFound(String message) {
@@ -213,6 +241,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a not found error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T notFound() {
@@ -222,6 +251,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a not implemented error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T notImplemented(Throwable t) {
@@ -231,6 +261,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a not implemented error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T notImplemented(String message) {
@@ -239,6 +270,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a not implemented error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T notImplemented() {
@@ -248,6 +280,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a precondition failed error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T preconditionFailed(Throwable t) {
@@ -257,6 +290,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a precondition failed error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T preconditionFailed(String message) {
@@ -265,6 +299,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a precondition failed error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T preconditionFailed() {
@@ -274,6 +309,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a precondition required error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T preconditionRequired(Throwable t) {
@@ -283,6 +319,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a precondition required error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T preconditionRequired(String message) {
@@ -291,6 +328,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a precondition required error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T preconditionRequired() {
@@ -300,6 +338,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a proxy authentication required error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T proxyAuthenticationRequired(Throwable t) {
@@ -309,6 +348,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a proxy authentication required error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T proxyAuthenticationRequired(String message) {
@@ -317,6 +357,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a proxy authentication required error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T proxyAuthenticationRequired() {
@@ -326,6 +367,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a request entity too large error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T requestEntityTooLarge(Throwable t) {
@@ -335,6 +377,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a request entity too large error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T requestEntityTooLarge(String message) {
@@ -343,6 +386,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a request entity too large error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T requestEntityTooLarge() {
@@ -352,6 +396,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a service unavailable error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T serviceUnavailable(Throwable t) {
@@ -361,6 +406,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a service unavailable error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T serviceUnavailable(String message) {
@@ -369,6 +415,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a service unavailable error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T serviceUnavailable() {
@@ -378,6 +425,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a too many requests error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T tooManyRequests(Throwable t) {
@@ -387,6 +435,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates a too many requests error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T tooManyRequests(String message) {
@@ -395,6 +444,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates a too many requests error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T tooManyRequests() {
@@ -404,6 +454,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates an unauthorized error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T unauthorized(Throwable t) {
@@ -413,6 +464,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates an unauthorized error with the specified  message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T unauthorized(String message) {
@@ -421,6 +473,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates an unauthorized error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T unauthorized() {
@@ -430,6 +483,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates an unavailable for legal reasons error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T unavailableForLegalReasons(Throwable t) {
@@ -439,6 +493,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates an unavailable for legal reasons error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T unavailableForLegalReasons(String message) {
@@ -447,6 +502,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates an unavailable for legal reasons error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T unavailableForLegalReasons() {
@@ -456,6 +512,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates an unsupported media type error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T unsupportedMediaType(Throwable t) {
@@ -465,6 +522,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates an unsupported media type error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T unsupportedMediaType(String message) {
@@ -473,6 +531,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates an unsupported media type error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T unsupportedMediaType() {
@@ -482,6 +541,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates an upgrade required error with the specified exception or throwable
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T upgradeRequired(Throwable t) {
@@ -491,6 +551,7 @@ public abstract class ApiError extends Exception {
     /**
      * Creates an upgrade required error with the specified message
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T upgradeRequired(String message) {
@@ -499,6 +560,7 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates an upgrade required error
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T upgradeRequired() {
@@ -507,7 +569,9 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates an upgrade required error with the specified exception or throwable
+     * @param code the status code
      * @param t The exception or throwable
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T error(int code, Throwable t) {
@@ -516,7 +580,9 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates an upgrade required error with the specified message
+     * @param code the status code
      * @param message The message
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T error(int code, String message) {
@@ -525,6 +591,8 @@ public abstract class ApiError extends Exception {
 
     /**
      * Creates an upgrade required error
+     * @param code the status code
+     * @param <T> The type of ApiError e.g. ApiErrorBasic
      * @return The api error
      */
     public static <T extends ApiError> T error(int code) {

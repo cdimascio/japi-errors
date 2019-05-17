@@ -11,6 +11,10 @@ public class ApiErrorBasicCreator implements IApiErrorCreator<ApiErrorBasic> {
 
     @Override
     public ApiErrorBasic create(HttpStatus status, Throwable t) {
-        return new ApiErrorBasic(status.getCode(), t.getMessage());
+        String message = t.getMessage();
+        if (message == null || message.isEmpty()) {
+            message = HttpStatus.fromCode(status.getCode()).getDescription();
+        }
+        return new ApiErrorBasic(status.getCode(), message);
     }
 }
